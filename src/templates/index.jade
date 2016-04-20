@@ -43,12 +43,14 @@ html
 		<!--[if lt IE 9]>
 			script(src="vendor/html5shiv.js")
 		<![endif]-->
+		<meta name="viewport" content="initial-scale=1">
 		title #{name} — Résumé
 		link(rel="stylesheet", href="styles/style.css")
 		link(rel="stylesheet", href="styles/font-awesome/css/font-awesome.min.css")
 	body("data-ng-app"="wynn","data-ng-controller"="cvController")
 		div
 			header.main-header
+				img.qr(src='images/qr.svg')
 				h1.name= name
 				address.contact-info
 					ul.stealth-list.compact-list('data-ng-if'='model.address')

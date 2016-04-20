@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "gulp",
     "build": "gulp build:all",
-    "start": "node server"
+    "deploy": "gulp deploy"
   },
   "author": "Wynn Slater",
   "homepage": "http://armordog.github.io/wynn.cv/",
@@ -19,11 +19,13 @@
     "gulp": "^3.9.1",
     "gulp-gh-pages": "^0.5.4",
     "gulp-livereload": "^3.8.1",
+    "gulp-streamify": "^1.0.2",
     "html5shiv": "^3.7.3",
     "mkdirp": "^0.5.1",
     "open": "0.0.5",
     "pug": "^2.0.0-alpha6",
-    "run-sequence": "^1.1.5"
+    "run-sequence": "^1.1.5",
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {}
 }

@@ -1,5 +1,5 @@
 /* config */
-var BUILD_LOCATION = "build";
+var BUILD_LOCATION = ".build";
 var LOCALS_PATH = __dirname + '/src/wynn.slater.json';
 
 /* dependencies */
@@ -8,11 +8,14 @@ var gulp = require('gulp'),
 	livereload = require("gulp-livereload"),
 	jade = require('pug'),
 	fs = require("fs"),
+	streamify = require("gulp-streamify"),
+	vss = require("vinyl-source-stream"),
 	mkdirp = require("mkdirp"),
 	del = require("del"),
 	runSequence = require("run-sequence"),
 	server = require("./server.js"),
-	ghDeploy = require('gulp-gh-pages');
+	ghDeploy = require('gulp-gh-pages'),
+	qrImage = require('qr-image');
 
 
 /* develop */
@@ -22,7 +25,7 @@ gulp.task('develop', function (done) {
 });
 
 gulp.task('serve', function (done) {
-	var listener = server.serve();
+	var listener = server.serve(BUILD_LOCATION);
 	var port = listener.address().port;
 	openUrl("http://localhost:" + port);
 	done();
@@ -32,12 +35,19 @@ gulp.task('serve', function (done) {
 /* build */
 
 gulp.task('build:all', function (done) {
-	runSequence('clean', 'build:copy', 'build:src', done);
+	runSequence('clean', ['build:copy', 'build:src'], done);
 });
 
 gulp.task('build:copy', ['copy:src', 'copy:vendor']);
 
-gulp.task('build:src', ['build:jade']);
+gulp.task('build:src', ['build:jade', 'generate:image']);
+
+gulp.task('generate:image', function () {
+	mkdirp.sync(BUILD_LOCATION + "/images");
+	var image = qrImage.image('http://armordog.github.io/wynn.cv/', {type:'svg'});
+	var dest = fs.createWriteStream(BUILD_LOCATION + "/images/qr.svg");
+	image.pipe(dest);
+});
 
 gulp.task('build:jade', function (done) {
 	delete require.cache[require.resolve(LOCALS_PATH)];
@@ -116,7 +126,7 @@ gulp.task('watch:static', function () {
 
 /* deploy */
 gulp.task('deploy', ['build:all'], function (done) {
-	return gulp.src('./build/**/*')
+	return gulp.src(BUILD_LOCATION + '/**/*')
 		.pipe(ghDeploy());
 });
 
