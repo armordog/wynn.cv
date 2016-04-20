@@ -1,2 +1,2 @@
-# My Resume
-I decided to build my resume as a webpage using JSON, Jade, and Angular
+# My Résumé
+I decided to build my résumé as a webpage using JSON, Jade, and Angular

@@ -1,7 +1,7 @@
 {
   "name": "wynn.cv",
   "version": "1.0.0",
-  "description": "A Rube-Goldbergian Resume",
+  "description": "A Rube-Goldbergian Résumé",
   "main": "",
   "scripts": {
     "dev": "gulp",
