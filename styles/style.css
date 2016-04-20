@@ -107,4 +107,10 @@ dl.inline dd {
 	p {
 		page-break-inside: avoid;
 	}
+
+	.qr {
+		display: table-cell;
+		height: 6em;
+		margin-right: 1em;
+	}
 }
