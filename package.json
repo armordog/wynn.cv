@@ -10,6 +10,10 @@
   },
   "author": "Wynn Slater",
   "homepage": "http://armordog.github.io/wynn.cv/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/armordog/wynn.cv.git"
+  },
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.5.5",
