@@ -9,6 +9,7 @@
     "start": "node server"
   },
   "author": "Wynn Slater",
+  "homepage": "http://armordog.github.io/wynn.cv/",
   "license": "ISC",
   "devDependencies": {
     "angular": "^1.5.5",
