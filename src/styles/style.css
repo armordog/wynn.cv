@@ -47,9 +47,6 @@ dl.inline dd {
 	display: inline;
 	margin-left: 0.5em;
 }
-.ng-cloak {
-	display: none !important;
-}
 .label {
 	font-weight: bold;
 }
@@ -86,53 +83,6 @@ dl.inline dd {
 }
 
 
-
-/* layout */
-.menu-button {
-	position: absolute;
-	background: none;
-	border: none;
-	color: silver;
-	font-size: 2em;
-	transition: transform 0.25s ease;
-}
-
-.page-wrap {
-	width: 100%;
-}
-
-.outline {
-	width: 0;
-
-	height: 100%;
-	overflow: hidden;
-	position: fixed;
-	top: 0;
-	left: 0;
-
-	padding-top: 2em;
-	background-color: #eef;
-
-	transition: width 0.25s ease;
-}
-
-.section-header {
-	transition: padding 0.25s ease;
-}
-
-.menu-active .name, .menu-active .section-header {
-	padding-left: 300px;
-}
-
-.menu-active .menu-button {
-	position: fixed;
-	transform: rotate(180deg);
-}
-
-.menu-active .outline {
-	width: 300px;
-}
-
 @media print {
 	body {
 		font-size: 10pt;
@@ -156,9 +106,5 @@ dl.inline dd {
 
 	p {
 		page-break-inside: avoid;
-	}
-
-	.menu-button {
-		display: none;
 	}
 }
