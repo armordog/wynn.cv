@@ -11,7 +11,8 @@ var gulp = require('gulp'),
 	mkdirp = require("mkdirp"),
 	del = require("del"),
 	runSequence = require("run-sequence"),
-	server = require("./server.js");
+	server = require("./server.js"),
+	ghDeploy = require('gulp-gh-pages');
 
 
 /* develop */
@@ -111,6 +112,13 @@ gulp.task('watch:static', function () {
 	);
 });
 
-gulp.task('default', ['develop']);
 
-gulp.task('run', ['server']);
+
+/* deploy */
+gulp.task('deploy', ['build:all'], function (done) {
+	return gulp.src('./build/**/*')
+		.pipe(ghDeploy());
+});
+
+
+gulp.task('default', ['develop']);

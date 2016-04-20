@@ -1,12 +1,12 @@
 mixin sec(key, title)
-	section(id=key,"data-section-id"=key,data-outline="")
+	section(id=key,"data-section-id"=key)
 		h2.section-header= title
 		block
 
 
 mixin workplace(model)
 	header
-		h3(data-outline="").inline-header.workplace= model.company
+		h3.inline-header.workplace= model.company
 		if model.note
 			small  (#{model.note})
 		span.location= model.location
@@ -19,7 +19,7 @@ mixin workplace(model)
 
 
 mixin position(model)
-	h4(data-outline="").inline-header= model.title
+	h4.inline-header= model.title
 	if model.duration
 		span.duration= model.duration
 	if model.responsibilities
@@ -46,56 +46,49 @@ html
 		title #{name} — Résumé
 		link(rel="stylesheet", href="styles/style.css")
 		link(rel="stylesheet", href="styles/font-awesome/css/font-awesome.min.css")
-	body("data-ng-app"="wynn","data-ng-controller"="outlineController","data-ng-class"="{'menu-active':model.menu}")
+	body("data-ng-app"="wynn","data-ng-controller"="cvController")
 		div
-			nav.outline.ng-cloak
-				ul('data-ng-click'="model.menu = false")
-					li('data-ng-repeat'="section in model.docOutline")
-						a(data-ng-href="#{{section.id}}") {{section.label}}
-			div.page-wrap("data-outline"="model.docOutline")
-				header.main-header
-					button.menu-button('data-ng-click'='model.menu = !model.menu')
-						i.fa.fa-arrow-circle-right('aria-hidden'=true)
-					h1.name= name
-					address.contact-info
-						ul.stealth-list.compact-list('data-ng-if'='model.address')
-							li('data-ng-repeat'='line in model.address') {{line}}<br>
-						dl.inline.compact-list
-							dt(data-ng-if='model.phone',title="Phone")
-								i.fa.fa-phone-square('aria-hidden'=true)
-							dd(data-ng-if='model.phone') {{model.phone}}
-							dt(title="Email")
-								i.fa.fa-envelope('aria-hidden'=true)
-							dd: a(href="mailto:" + contact.email)= contact.email
-				main
-					+sec("summary", "Summary")
-						p= summary
-					+sec("strengths", "Key Strengths")
-						ul
-							each strength in strengths
-								li= strength
-					+sec("competencies", "Core Competencies")
-						+list(competencies)
-					+sec("history", "Work History")
-						ol.stealth-list
-							each workplace in history
-								li
-									+workplace(workplace)
-					+sec("education", "Education")
-						dl
-							each school in education
-								dt
-									span.label= school.name
-									span.location= school.location
-								dd= school.education
-					+sec("training", "Training")
-						+list(training)
-					+sec("software", "Software Experience")
-						+list(software)
-					+sec("skills", "Specific Skills")
-						+list(skills)
-				footer.references
-					small References supplied upon request
+			header.main-header
+				h1.name= name
+				address.contact-info
+					ul.stealth-list.compact-list('data-ng-if'='model.address')
+						li('data-ng-repeat'='line in model.address') {{line}}<br>
+					dl.inline.compact-list
+						dt(data-ng-if='model.phone',title="Phone")
+							i.fa.fa-phone-square('aria-hidden'=true)
+						dd(data-ng-if='model.phone') {{model.phone}}
+						dt(title="Email")
+							i.fa.fa-envelope('aria-hidden'=true)
+						dd: a(href="mailto:" + contact.email)= contact.email
+			main
+				+sec("summary", "Summary")
+					p= summary
+				+sec("strengths", "Key Strengths")
+					ul
+						each strength in strengths
+							li= strength
+				+sec("competencies", "Core Competencies")
+					+list(competencies)
+				+sec("history", "Work History")
+					ol.stealth-list
+						each workplace in history
+							li
+								+workplace(workplace)
+				+sec("education", "Education")
+					dl
+						each school in education
+							dt
+								span.label= school.name
+								span.location= school.location
+							dd= school.education
+				+sec("training", "Training")
+					+list(training)
+				+sec("software", "Software Experience")
+					+list(software)
+				+sec("skills", "Specific Skills")
+					+list(skills)
+			footer.references
+				small References supplied upon request
 		<!--[if gt IE 8]><!-->
 		script(src="vendor/angular.min.js")
 		script(src="scripts/index.js")
