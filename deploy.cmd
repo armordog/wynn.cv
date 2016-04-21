@@ -1,1 +1,1 @@
-npm install & npm run-script deploy
+npm install && npm run-script deploy

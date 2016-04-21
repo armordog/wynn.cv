@@ -16,7 +16,8 @@ var gulp = require('gulp'),
 	server = require("./server.js"),
 	ghDeploy = require('gulp-gh-pages'),
 	qrImage = require('qr-image'),
-	browserify = require('gulp-browserify');
+	browserify = require('gulp-browserify'),
+	karmaServer = require('karma').Server;
 
 
 /* develop */
@@ -51,7 +52,6 @@ gulp.task('generate:image', function () {
 });
 
 gulp.task('build:jade', function (done) {
-	console.log("build jade");
 	delete require.cache[require.resolve(LOCALS_PATH)];
 	var json = require(LOCALS_PATH);
 
@@ -134,6 +134,26 @@ gulp.task('watch:static', function () {
 		}
 	);
 });
+
+
+/* test */
+gulp.task('test', ['build:all'], runJasmineTests);
+
+gulp.task('jasmine', runJasmineTests);
+
+function runJasmineTests (done) {
+
+	var server = new karmaServer({
+		configFile: __dirname + '/karma.conf.js',
+		singleRun: true
+	});
+
+	server.on('run_complete', function (browsers, results) {
+		done (results.error ? "Tests Failed" : null);
+	});
+
+	server.start();
+}
 
 
 
