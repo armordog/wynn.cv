@@ -37,6 +37,7 @@ gulp.task('serve', function (done) {
 /* build */
 
 gulp.task('build:all', function (done) {
+	mkdirp.sync(BUILD_LOCATION);
 	runSequence('clean', ['build:copy', 'build:src'], done);
 });
 
