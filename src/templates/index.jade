@@ -47,7 +47,7 @@ html
 		title #{name} — Résumé
 		link(rel="stylesheet", href="styles/style.css")
 		link(rel="stylesheet", href="styles/font-awesome/css/font-awesome.min.css")
-	body("data-ng-app"="wynn","data-ng-controller"="cvController")
+	body("data-ng-app"="cv","data-ng-controller"="cvController")
 		div
 			header.main-header
 				img.qr(src='images/qr.svg')
@@ -93,5 +93,5 @@ html
 				small References supplied upon request
 		<!--[if gt IE 8]><!-->
 		script(src="vendor/angular.min.js")
-		script(src="scripts/index.js")
+		script(src="scripts/app.js")
 		<!--<![endif]-->

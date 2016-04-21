@@ -15,7 +15,8 @@ var gulp = require('gulp'),
 	runSequence = require("run-sequence"),
 	server = require("./server.js"),
 	ghDeploy = require('gulp-gh-pages'),
-	qrImage = require('qr-image');
+	qrImage = require('qr-image'),
+	browserify = require('gulp-browserify');
 
 
 /* develop */
@@ -40,7 +41,7 @@ gulp.task('build:all', function (done) {
 
 gulp.task('build:copy', ['copy:src', 'copy:vendor']);
 
-gulp.task('build:src', ['build:jade', 'generate:image']);
+gulp.task('build:src', ['build:jade', 'build:js', 'generate:image']);
 
 gulp.task('generate:image', function () {
 	mkdirp.sync(BUILD_LOCATION + "/images");
@@ -50,6 +51,7 @@ gulp.task('generate:image', function () {
 });
 
 gulp.task('build:jade', function (done) {
+	console.log("build jade");
 	delete require.cache[require.resolve(LOCALS_PATH)];
 	var json = require(LOCALS_PATH);
 
@@ -57,10 +59,15 @@ gulp.task('build:jade', function (done) {
 	fs.writeFile(BUILD_LOCATION + "/index.html", html, done);
 });
 
+gulp.task('build:js', function () {
+	return gulp.src('src/scripts/app.js')
+		.pipe(browserify())
+		.pipe(gulp.dest(BUILD_LOCATION + "/scripts/"));
+});
+
 gulp.task('copy:src', function (done) {
 	return gulp.src(
 		[
-			'src/scripts/**/*',
 			'src/styles/**/*',
 			'!*.less'
 		],
@@ -91,7 +98,7 @@ gulp.task('clean', function () {
 
 
 /* watch */
-gulp.task('watch:all', ["watch:jade", "watch:resource", "watch:static"]);
+gulp.task('watch:all', ["watch:jade", "watch:scripts", "watch:resource", "watch:static"]);
 
 gulp.task('watch:jade', function () {
 	gulp.watch(
@@ -100,10 +107,16 @@ gulp.task('watch:jade', function () {
 	);
 });
 
+gulp.task('watch:scripts', function () {
+	gulp.watch(
+		['src/scripts/**/*'],
+		['build:js']
+	);
+});
+
 gulp.task('watch:resource', function () {
 	gulp.watch(
 		[
-			'src/scripts/**/*',
 			'src/styles/**/*'
 		],
 		['copy:src']
@@ -114,7 +127,7 @@ gulp.task('watch:static', function () {
 	livereload.listen();
 	gulp.watch(
 		[
-			"build/**/*"
+			BUILD_LOCATION + "/**/*"
 		],
 		function () {
 			livereload.reload();
