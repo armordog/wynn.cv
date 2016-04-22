@@ -6,7 +6,7 @@ module.exports = angular.module(
 		require('./services/localStorageJson').name
 	]
 ).controller({
-	cvController: function ($scope, localStorageJson) {
+	cvController: /*@ngInject*/ function ($scope, localStorageJson) {
 		$scope.model = {
 			phone: localStorageJson.get("phone"),
 			address: localStorageJson.get("address")

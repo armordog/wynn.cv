@@ -2,8 +2,7 @@ module.exports = angular.module(
 	'localStorageJson',
 	[]
 ).service({
-	localStorageJson: function ($window) {
-
+	localStorageJson: /*@ngInject*/ function ($window) {
 		function getLocalStorage () {
 			return $window.localStorage || {};
 		}
