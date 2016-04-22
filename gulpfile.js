@@ -18,6 +18,7 @@ var ghDeploy = require('gulp-gh-pages');
 var qrImage = require('qr-image');
 var browserify = require('browserify');
 var karmaServer = require('karma').Server;
+var vs = require('vinyl-string');
 
 
 /* develop */
@@ -56,28 +57,9 @@ gulp.task('build:jade', function () {
 
 	var html = jade.renderFile(__dirname + '/src/templates/index.jade', json);
 
-	return stringToVinylStream(html, { path: "index.html"})
+	return vs(html, { path: "index.html"})
 		.pipe(gulp.dest(BUILD_LOCATION));
 });
-
-function stringToVinylStream (string, options) {
-	var File = require('vinyl');
-	var Transform = require('stream').Transform;
-
-	var vFile = new File({
-		path: (options && options.path) || undefined,
-		contents: new Buffer(string)
-	});
-
-	var stream = new Transform({
-		objectMode: true
-	});
-
-	stream.push(vFile);
-	stream.push(null);
-
-	return stream;
-}
 
 gulp.task('build:js', bundleJs);
 
