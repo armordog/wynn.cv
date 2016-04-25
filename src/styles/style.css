@@ -8,7 +8,7 @@ section {
 }
 h1 {
 	font-size: 2em;
-	color: silver;
+	color: #999;
 }
 h2 {
 	border-bottom: 1px solid #ddd;
@@ -58,16 +58,11 @@ dl.inline dd {
 	background-color: #eef;
 	padding: 0.5em;
 }
-.section-header {
-	margin-top: 0.5em;
-	margin-bottom: 0.2em;
-}
 .name {
 	display: table-cell;
 	width: 100%;
 	padding-top: 1.5em;
 	vertical-align: bottom;
-	transition: padding 0.25s ease;
 }
 .contact-info {
 	font-style: normal;
@@ -77,8 +72,14 @@ dl.inline dd {
 	white-space: nowrap;
 	color:#333;
 }
+.contact-info li {
+	margin: 0;
+}
 .location:before {
 	content: ",\00a0";
+}
+.section-header {
+	margin-top: 1em;
 }
 .duration {
 	float: right;
@@ -93,7 +94,8 @@ dl.inline dd {
 	display: inline-block;
 	width: 100%; /* fit to screen */
 	max-width: 25em; /* multiple columns */
-	padding: 0.2em 0.5em 0.2em 0;
+	margin: 0.25em 0.5em 0.25em 0;
+	vertical-align: top;
 }
 
 
@@ -115,13 +117,24 @@ dl.inline dd {
 		page-break-inside: avoid;
 	}
 
+	.section-header {
+		margin-top: 0.5em;
+		margin-bottom: 0.2em;
+	}
+
 	.column-list li {
-		max-width: 45%;
+		max-width: 32%;
 	}
 
 	.qr {
 		display: table-cell;
 		height: 6em;
-		margin-right: 1em;
+		padding-right: 1em;
+	}
+}
+
+@media screen {
+	li {
+		margin: 0.25em 0;
 	}
 }

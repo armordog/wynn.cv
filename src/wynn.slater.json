@@ -26,7 +26,10 @@
 		{
 			"company": "Underwriters Laboratories",
 			"location": "Kelowna, BC",
-			"duration": "2012-2016",
+			"duration": {
+				"start":2012,
+				"end":2016
+			},
 			"positions": [
 				{
 					"title": "Software Developer",
@@ -44,11 +47,17 @@
 			"company": "PureSafety",
 			"note": "Acquired by Underwriters Laboratories",
 			"location": "Kelowna, BC",
-			"duration": "2001-2012",
+			"duration": {
+				"start":2001,
+				"end":2012
+			},
 			"positions": [
 				{
 					"title": "User Experience Developer",
-					"duration": "2009-2012",
+					"duration": {
+						"start":2009,
+						"end":2012
+					},
 					"responsibilities": [
 						"Developed training platform software",
 						"Developed authoring tools for training",
@@ -59,7 +68,10 @@
 				},
 				{
 					"title": "Courseware Developer",
-					"duration": "2001-2009",
+					"duration":{
+						"start":2001,
+						"end":2009
+					},
 					"responsibilities": [
 						"Developed internal tools for courseware developers",
 						"Developed internal tool for time tracking and forecasting",
@@ -75,7 +87,10 @@
 			"company": "Kaede Graphics and Design",
 			"note": "Acquired by PureSafety",
 			"location": "Westbank, BC",
-			"duration": "2000-2001",
+			"duration": {
+				"start":2000,
+				"end":2001
+			},
 			"positions":[
 				{
 					"title": "Courseware Developer"

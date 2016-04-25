@@ -10,7 +10,7 @@ mixin workplace(model)
 		if model.note
 			small  (#{model.note})
 		span.location= model.location
-		span.duration= model.duration
+		+duration(model.duration)
 	if model.positions
 		ul.stealth-list
 			each position in model.positions
@@ -20,8 +20,7 @@ mixin workplace(model)
 
 mixin position(model)
 	h4.inline-header= model.title
-	if model.duration
-		span.duration= model.duration
+	+duration(model.duration)
 	if model.responsibilities
 		ul
 			each responsibility in model.responsibilities
@@ -36,14 +35,22 @@ mixin list(array)
 			each element in array
 				li= element
 
+mixin duration(range)
+	if range
+		// ISO 8601 format for time interval
+		time.duration(datetime=range.start + "/" + range.end)
+			= range.start + " – " + range.end
+
+
 
 doctype html
-html
+html(lang="en")
 	head
 		<!--[if lt IE 9]>
 			script(src="vendor/html5shiv.js")
 		<![endif]-->
-		<meta name="viewport" content="initial-scale=1">
+		<meta name="viewport" content="initial-scale=1"/>
+		<meta charset="UTF-8"/>
 		title #{name} — Résumé
 		link(rel="stylesheet", href="styles/style.css")
 		link(rel="stylesheet", href="styles/font-awesome/css/font-awesome.min.css")
@@ -80,7 +87,7 @@ html
 					dl
 						each school in education
 							dt
-								span.label= school.name
+								dfn.label= school.name
 								span.location= school.location
 							dd= school.education
 				+sec("training", "Training")
