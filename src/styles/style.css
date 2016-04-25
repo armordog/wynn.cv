@@ -28,6 +28,7 @@ small {
 /* utility */
 .stealth-list {
 	list-style: none;
+	padding-left: 30px;
 }
 .compact-list {
 	padding-left: 0;
@@ -57,6 +58,10 @@ dl.inline dd {
 	background-color: #eef;
 	padding: 0.5em;
 }
+.section-header {
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
 .name {
 	display: table-cell;
 	width: 100%;
@@ -81,6 +86,15 @@ dl.inline dd {
 .references {
 	text-align: center;
 }
+.column-list {
+	margin: 0;
+}
+.column-list li {
+	display: inline-block;
+	width: 100%; /* fit to screen */
+	max-width: 25em; /* multiple columns */
+	padding: 0.2em 0.5em 0.2em 0;
+}
 
 
 @media print {
@@ -93,19 +107,16 @@ dl.inline dd {
 		text-decoration: none;
 	}
 
-	.column-list {
-		-webkit-columns: 2;
-		-moz-columns: 2;
-		columns: 2;
-		list-style-position: inside;
-	}
-
 	h1, h2, h3, h4 {
 		page-break-after: avoid;
 	}
 
 	p {
 		page-break-inside: avoid;
+	}
+
+	.column-list li {
+		max-width: 45%;
 	}
 
 	.qr {
