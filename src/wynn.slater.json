@@ -39,7 +39,7 @@
 						"Worked with project managers to plan and schedule new features",
 						"Tracked down and fixed defects"
 					],
-					"accomplishments": "The organization had multiple methods to deliver training content and multiple sources, all requiring separate handling. I worked with project management and server-side developers to build an internal CMS which acted as a single point to deal with all training content which simplified workflows within the company. PureSafety login help was a problem because there were too many support calls about logging into the application, especially with users forgetting usernames and passwords. I developed a dynamic help wizard to take the user through identifying their company name, username and reset their password if necessary. This resulted in a significant drop in support calls and Custom Google Analytics integration enabled us to see which steps were problematic."
+					"accomplishments": "The organization had multiple methods to deliver training content and multiple sources, all requiring separate handling. I worked with project management and server-side developers to build an internal <abbr title='Content Management System'>CMS</abbr> which acted as a single point to deal with all training content which simplified workflows within the company. PureSafety login help was a problem because there were too many support calls about logging into the application, especially with users forgetting usernames and passwords. I developed a dynamic help wizard to take the user through identifying their company name, username and reset their password if necessary. This resulted in a significant drop in support calls and Custom Google Analytics integration enabled us to see which steps were problematic."
 				}
 			]
 		},
@@ -61,10 +61,10 @@
 					"responsibilities": [
 						"Developed training platform software",
 						"Developed authoring tools for training",
-						"Developed new areas of PureSafety LMS"
+						"Developed new areas of PureSafety <abbr title='Learning Management System'>LMS</abbr>"
 
 					],
-					"accomplishments": "Changing Javascript code was causing other things to break. I implemented Javascript unit tests and set them up to run continuously which resulted in breaking changes being found. Wrote new code with unit testing in mind which was more robust and well organized. PureSafety LMS needed a way to send internal messages between users. I added a new area to the application with rich-text messaging which resulted in users without email addresses being able to get messages from their managers or from the system."
+					"accomplishments": "Changing Javascript code was causing other things to break. I implemented Javascript unit tests and set them up to run continuously which resulted in breaking changes being found. Wrote new code with unit testing in mind which was more robust and well organized. PureSafety <abbr title='Learning Management System'>LMS</abbr> needed a way to send internal messages between users. I added a new area to the application with rich-text messaging which resulted in users without email addresses being able to get messages from their managers or from the system."
 				},
 				{
 					"title": "Courseware Developer",
@@ -76,10 +76,10 @@
 						"Developed internal tools for courseware developers",
 						"Developed internal tool for time tracking and forecasting",
 						"Developed flexible, robust training platforms for rich-media presentations",
-						"Integrated training platforms with SCORM and AICC Learning Management System",
+						"Integrated training platforms with <abbr title='e-learning standards'>SCORM and AICC</abbr> Learning Management System",
 						"Built rich-media training presentations"
 					],
-					"accomplishments": "We needed a flexible way to distribute our rich-media content. I developed and built and XML-based presentation which handles synchronization of text, images and sound, animation, dynamic preloading of assets, interactive learning activities and integrated testing. It took most of an entire work day for the office manager to input and collate all logged work time from Oracle by hand. I wrote a series of Visual Basic for applications in Excel to extract and collate Oracle data by employee and client project, generate development forecasts, generate reports and compare versions of reports from different dates by user-definable criteria. This resulted in reports and forecasts that were completed in minutes rather than several hours."
+					"accomplishments": "We needed a flexible way to distribute our rich-media content. I developed and built and XML-based presentation which handles synchronization of text, images and sound, animation, dynamic preloading of assets, interactive learning activities and integrated testing. It took most of an entire work day for the office manager to input and collate all logged work time from Oracle by hand. I wrote an extensive Visual Basic script in Excel to extract and collate Oracle data by employee and client project, generate development forecasts, generate reports and compare versions of reports from different dates by user-definable criteria. This resulted in reports and forecasts that were completed in minutes rather than hours."
 				}
 			]
 		},

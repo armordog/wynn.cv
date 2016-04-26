@@ -24,16 +24,16 @@ mixin position(model)
 	if model.responsibilities
 		ul
 			each responsibility in model.responsibilities
-				li= responsibility
+				li!= responsibility
 	if model.accomplishments
-		p.accomplishments= model.accomplishments
+		p.accomplishments!= model.accomplishments
 
 
 mixin list(array)
 	if array && array.length
 		ul.column-list
 			each element in array
-				li= element
+				li!= element
 
 mixin duration(range)
 	if range

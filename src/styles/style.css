@@ -97,9 +97,22 @@ dl.inline dd {
 	margin: 0.25em 0.5em 0.25em 0;
 	vertical-align: top;
 }
+abbr {
+	cursor: help;
+	border-bottom: 1px dotted #777;
+}
 
 
 @media print {
+	abbr {
+		border-bottom: none;
+	}
+
+	abbr::after {
+		content: ' (' attr(title) ')';
+		font-style: italic;
+	}
+
 	body {
 		font-size: 10pt;
 	}
