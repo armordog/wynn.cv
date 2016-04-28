@@ -60,12 +60,12 @@ html(lang="en")
 				img.qr(src='images/qr.svg')
 				h1.name= name
 				address.contact-info
-					ul.stealth-list.compact-list('data-ng-if'='model.address')
+					ul.ng-cloak.stealth-list.compact-list('data-ng-if'='model.address')
 						li('data-ng-repeat'='line in model.address') {{line}}<br>
 					dl.inline.compact-list
-						dt(data-ng-if='model.phone',title="Phone")
+						dt.ng-cloak(data-ng-if='model.phone',title="Phone")
 							i.fa.fa-phone-square('aria-hidden'=true)
-						dd(data-ng-if='model.phone') {{model.phone}}
+						dd.ng-cloak(data-ng-if='model.phone') {{model.phone}}
 						dt(title="Email")
 							i.fa.fa-envelope('aria-hidden'=true)
 						dd: a(href="mailto:" + contact.email)= contact.email

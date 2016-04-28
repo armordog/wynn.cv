@@ -116,7 +116,10 @@ gulp.task('watch:all', ["watch:jade", "watch:scripts", "watch:resource", "watch:
 
 gulp.task('watch:jade', function () {
 	gulp.watch(
-		['src/templates/**/*'],
+		[
+			'src/templates/**/*',
+			'src/*.json'
+		],
 		['build:jade']
 	);
 });
